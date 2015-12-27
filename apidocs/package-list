@@ -1,0 +1,9 @@
+net.sourceforge.argparse4j
+net.sourceforge.argparse4j.annotation
+net.sourceforge.argparse4j.helper
+net.sourceforge.argparse4j.impl
+net.sourceforge.argparse4j.impl.action
+net.sourceforge.argparse4j.impl.choice
+net.sourceforge.argparse4j.impl.type
+net.sourceforge.argparse4j.inf
+net.sourceforge.argparse4j.internal
