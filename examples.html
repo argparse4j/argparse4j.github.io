@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Examples &mdash; argparse4j 0.6.1-SNAPSHOT documentation</title>
+    <title>Examples &mdash; argparse4j 0.7.0-SNAPSHOT documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.6.1-SNAPSHOT',
+        VERSION:     '0.7.0-SNAPSHOT',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="argparse4j 0.6.1-SNAPSHOT documentation" href="index.html" />
+    <link rel="top" title="argparse4j 0.7.0-SNAPSHOT documentation" href="index.html" />
     <link rel="next" title="Migration" href="migration.html" />
     <link rel="prev" title="The Argparse4j User Manual" href="usage.html" /> 
   </head>
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="usage.html" title="The Argparse4j User Manual"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">argparse4j 0.6.1-SNAPSHOT documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">argparse4j 0.7.0-SNAPSHOT documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -196,7 +196,7 @@ Debian Linux:</p>
 </pre></div>
 </div>
 <p>With Closure, use <code class="xref docutils literal"><span class="pre">Long</span></code> type instead of <code class="xref docutils literal"><span class="pre">Integer</span></code>
-if you use <code class="xref docutils literal"><a class="reference external" href="apidocs/net/sourceforge/argparse4j/inf/Argument.html#choices-E...-"><span class="pre">Argument.choices-E...-()</span></a></code> with integer constants:</p>
+if you use <code class="xref docutils literal"><a class="reference external" href="apidocs/net/sourceforge/argparse4j/inf/Argument.html#choices-E...-"><span class="pre">Argument.choices()</span></a></code> with integer constants:</p>
 <div class="highlight-clojure"><div class="highlight"><pre><span class="p">(</span><span class="k">def </span><span class="nv">ap</span> <span class="p">(</span><span class="k">. </span><span class="nv">ArgumentParsers</span> <span class="nv">newArgumentParser</span> <span class="s">&quot;hello&quot;</span><span class="p">))</span>
 <span class="p">(</span><span class="nb">doto </span><span class="p">(</span><span class="k">. </span><span class="nv">ap</span> <span class="nv">addArgument</span> <span class="p">(</span><span class="nf">va</span> <span class="s">&quot;-i&quot;</span><span class="p">))</span>
       <span class="p">(</span><span class="nf">.type</span> <span class="nv">Long</span><span class="p">)</span>
@@ -275,11 +275,11 @@ if you use <code class="xref docutils literal"><a class="reference external" hre
         <li class="right" >
           <a href="usage.html" title="The Argparse4j User Manual"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">argparse4j 0.6.1-SNAPSHOT documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">argparse4j 0.7.0-SNAPSHOT documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2011, 2014, Tatsuhiro Tsujikawa.
+        &copy; Copyright 2011, 2015, Tatsuhiro Tsujikawa.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
