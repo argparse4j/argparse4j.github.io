@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>The Argparse4j User Manual &mdash; argparse4j 0.7.0-SNAPSHOT documentation</title>
+    <title>The Argparse4j User Manual &mdash; argparse4j 0.7.0 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.7.0-SNAPSHOT',
+        VERSION:     '0.7.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="argparse4j 0.7.0-SNAPSHOT documentation" href="index.html" />
+    <link rel="top" title="argparse4j 0.7.0 documentation" href="index.html" />
     <link rel="next" title="Examples" href="examples.html" />
     <link rel="prev" title="Argparse4j - The Java command-line argument parser library" href="index.html" /> 
   </head>
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="index.html" title="Argparse4j - The Java command-line argument parser library"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">argparse4j 0.7.0-SNAPSHOT documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">argparse4j 0.7.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -1050,6 +1050,76 @@ directly:</p>
 is converted to its wrapped type counterpart. For example, if
 <code class="docutils literal"><span class="pre">int.class</span></code> is given, it is automatically converted to
 <code class="docutils literal"><span class="pre">Integer.class</span></code>.</p>
+<p>Passing <code class="docutils literal"><span class="pre">Boolean.class</span></code> to <code class="xref docutils literal"><a class="reference external" href="apidocs/net/sourceforge/argparse4j/inf/Argument.html#type-java.lang.Class-"><span class="pre">Argument.type()</span></a></code> has a caveat.  Since it
+relies on <code class="docutils literal"><span class="pre">Boolean.valueOf</span></code> method, any string which matches &quot;true&quot;
+in case-insensitive fashion is converted to <code class="docutils literal"><span class="pre">Boolean.TRUE</span></code>, and
+other strings are converted to <code class="docutils literal"><span class="pre">Boolean.FALSE</span></code>:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">ArgumentParser</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParsers</span><span class="o">.</span><span class="na">newArgumentParser</span><span class="o">(</span><span class="s">&quot;prog&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">defaultHelp</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="n">parser</span><span class="o">.</span><span class="na">addArgument</span><span class="o">(</span><span class="s">&quot;-f&quot;</span><span class="o">).</span><span class="na">type</span><span class="o">(</span><span class="n">Boolean</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+    <span class="n">Namespace</span> <span class="n">res</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="na">parseArgsOrFail</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;f=%b\n&quot;</span><span class="o">,</span> <span class="n">res</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;f&quot;</span><span class="o">));</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> java Demo -f TRue
+<span class="go">f=true</span>
+<span class="gp">$</span> java Demo -f foo
+<span class="go">f=false</span>
+</pre></div>
+</div>
+<p>If more strict boolean conversion is desirable, use
+<code class="xref docutils literal"><a class="reference external" href="apidocs/net/sourceforge/argparse4j/impl/Arguments.html#booleanType--"><span class="pre">Arguments.booleanType()</span></a></code>.  It only allows input
+string <code class="docutils literal"><span class="pre">true</span></code> as true value, and <code class="docutils literal"><span class="pre">false</span></code> as false value.  Otherwise,
+reports error:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">ArgumentParser</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParsers</span><span class="o">.</span><span class="na">newArgumentParser</span><span class="o">(</span><span class="s">&quot;prog&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">defaultHelp</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="n">parser</span><span class="o">.</span><span class="na">addArgument</span><span class="o">(</span><span class="s">&quot;-f&quot;</span><span class="o">).</span><span class="na">type</span><span class="o">(</span><span class="n">Arguments</span><span class="o">.</span><span class="na">booleanType</span><span class="o">());</span>
+
+    <span class="n">Namespace</span> <span class="n">res</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="na">parseArgsOrFail</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;f=%b\n&quot;</span><span class="o">,</span> <span class="n">res</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;f&quot;</span><span class="o">));</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> java Demo -f <span class="nb">true</span>
+<span class="go">f=true</span>
+<span class="gp">$</span> java Demo -f TRue
+<span class="go">usage: prog [-h] [-f {true,false}]</span>
+<span class="go">prog: error: argument  -f:  could  not  convert  &#39;TRue&#39;  (choose from {true,</span>
+<span class="go">false})</span>
+<span class="gp">$</span> java Demo -f foo
+<span class="go">usage: prog [-h] [-f {true,false}]</span>
+<span class="go">prog: error: argument  -f:  could  not  convert  &#39;foo&#39;  (choose  from {true,</span>
+<span class="go">false})</span>
+</pre></div>
+</div>
+<p>If application wants to change the valid input strings which can be
+converted to true/false values, use
+<code class="xref docutils literal"><a class="reference external" href="apidocs/net/sourceforge/argparse4j/impl/Arguments.html#booleanType-java.lang.String,java.lang.String-"><span class="pre">Arguments.booleanType()</span></a></code>.
+For example, to use <code class="docutils literal"><span class="pre">yes</span></code>, and <code class="docutils literal"><span class="pre">no</span></code> as true and false values
+respectively instead of <code class="docutils literal"><span class="pre">true</span></code> and <code class="docutils literal"><span class="pre">false</span></code>:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">ArgumentParser</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParsers</span><span class="o">.</span><span class="na">newArgumentParser</span><span class="o">(</span><span class="s">&quot;prog&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">defaultHelp</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="n">parser</span><span class="o">.</span><span class="na">addArgument</span><span class="o">(</span><span class="s">&quot;-f&quot;</span><span class="o">).</span><span class="na">type</span><span class="o">(</span><span class="n">Arguments</span><span class="o">.</span><span class="na">booleanType</span><span class="o">(</span><span class="s">&quot;yes&quot;</span><span class="o">,</span> <span class="s">&quot;no&quot;</span><span class="o">));</span>
+
+    <span class="n">Namespace</span> <span class="n">res</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="na">parseArgsOrFail</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;f=%b\n&quot;</span><span class="o">,</span> <span class="n">res</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;f&quot;</span><span class="o">));</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> java Demo -f yes
+<span class="go">f=true</span>
+<span class="gp">$</span> java Demo -f no
+<span class="go">f=false</span>
+<span class="gp">$</span> java Demo -f <span class="nb">true</span>
+<span class="go">usage: prog [-h] [-f {yes,no}]</span>
+<span class="go">prog: error: argument -f: could not convert &#39;true&#39; (choose from {yes,no})</span>
+</pre></div>
+</div>
 <p>The <code class="xref docutils literal"><a class="reference external" href="apidocs/net/sourceforge/argparse4j/inf/Argument.html#type-java.lang.Class-"><span class="pre">Argument.type()</span></a></code> can accept enums.  Since enums have limited number
 of members, type conversion effectively acts like a choice from
 members. For example:</p>
@@ -2438,7 +2508,7 @@ program usage and information about the arguments registered with
         <li class="right" >
           <a href="index.html" title="Argparse4j - The Java command-line argument parser library"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">argparse4j 0.7.0-SNAPSHOT documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">argparse4j 0.7.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
