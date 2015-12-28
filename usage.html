@@ -1098,7 +1098,7 @@ reports error:</p>
 </div>
 <p>If application wants to change the valid input strings which can be
 converted to true/false values, use
-<code class="xref docutils literal"><a class="reference external" href="apidocs/net/sourceforge/argparse4j/impl/Arguments.html#booleanType-java.lang.String,java.lang.String-"><span class="pre">Arguments.booleanType()</span></a></code>.
+<code class="xref docutils literal"><a class="reference external" href="apidocs/net/sourceforge/argparse4j/impl/Arguments.html#booleanType-java.lang.String-java.lang.String-"><span class="pre">Arguments.booleanType()</span></a></code>.
 For example, to use <code class="docutils literal"><span class="pre">yes</span></code>, and <code class="docutils literal"><span class="pre">no</span></code> as true and false values
 respectively instead of <code class="docutils literal"><span class="pre">true</span></code> and <code class="docutils literal"><span class="pre">false</span></code>:</p>
 <div class="highlight-java"><div class="highlight"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
@@ -1332,7 +1332,7 @@ argument was not one of the accepted values:</p>
 <p>Note that inclusion in the choices list is checked after any type
 conversions have been performed. If a list of value is not enough, you
 can create your own by subclassing <code class="xref docutils literal"><a class="reference external" href="apidocs/net/sourceforge/argparse4j/inf/ArgumentChoice.html"><span class="pre">ArgumentChoice</span></a></code>. For
-example, argparse4j provides <code class="xref docutils literal"><a class="reference external" href="apidocs/net/sourceforge/argparse4j/impl/Arguments.html#range-T, T-"><span class="pre">Arguments.range()</span></a></code> to check whether an
+example, argparse4j provides <code class="xref docutils literal"><a class="reference external" href="apidocs/net/sourceforge/argparse4j/impl/Arguments.html#range-T-T-"><span class="pre">Arguments.range()</span></a></code> to check whether an
 integer is in specified range:</p>
 <div class="highlight-java"><div class="highlight"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">ArgumentParser</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParsers</span><span class="o">.</span><span class="na">newArgumentParser</span><span class="o">(</span><span class="s">&quot;prog&quot;</span><span class="o">);</span>
@@ -2012,7 +2012,7 @@ like <code class="docutils literal"><span class="pre">svn</span></code>, aliases
 </pre></div>
 </div>
 <p>One particularly effective way of handling sub-commands is to combine
-the use of <code class="xref docutils literal"><a class="reference external" href="apidocs/net/sourceforge/argparse4j/inf/Subparser.html#setDefault-java.lang.String, java.lang.Object-"><span class="pre">Subparser.setDefault()</span></a></code> method so that each subparser knows
+the use of <code class="xref docutils literal"><a class="reference external" href="apidocs/net/sourceforge/argparse4j/inf/Subparser.html#setDefault-java.lang.String-java.lang.Object-"><span class="pre">Subparser.setDefault()</span></a></code> method so that each subparser knows
 which function it should execute. For example:</p>
 <div class="highlight-java"><div class="highlight"><pre><span class="kd">private</span> <span class="kd">static</span> <span class="kd">interface</span> <span class="nc">Accumulate</span> <span class="o">{</span>
     <span class="kt">int</span> <span class="nf">accumulate</span><span class="o">(</span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">ints</span><span class="o">);</span>
@@ -2312,7 +2312,7 @@ title and description, the help message is in separate group:</p>
 <p>Most of the time, the attributes of the object returned by
 <code class="xref docutils literal"><a class="reference external" href="apidocs/net/sourceforge/argparse4j/inf/ArgumentParser.html#parseArgs-java.lang.String[]-"><span class="pre">ArgumentParser.parseArgs()</span></a></code> will be fully determined by inspecting the
 command line arguments and the argument actions.
-<code class="xref docutils literal"><a class="reference external" href="apidocs/net/sourceforge/argparse4j/inf/ArgumentParser.html#setDefault-java.lang.String, java.lang.Object-"><span class="pre">ArgumentParser.setDefault()</span></a></code> allows some additional attributes that are
+<code class="xref docutils literal"><a class="reference external" href="apidocs/net/sourceforge/argparse4j/inf/ArgumentParser.html#setDefault-java.lang.String-java.lang.Object-"><span class="pre">ArgumentParser.setDefault()</span></a></code> allows some additional attributes that are
 determined without any inspection of the command line to be added:</p>
 <div class="highlight-java"><div class="highlight"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">ArgumentParser</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParsers</span><span class="o">.</span><span class="na">newArgumentParser</span><span class="o">(</span><span class="s">&quot;prog&quot;</span><span class="o">);</span>
@@ -2352,7 +2352,7 @@ defaults:</p>
 multiple parsers. See <a class="reference internal" href="#sub-commands"><span>Sub-commands</span></a> for an example of this type.
 <code class="xref docutils literal"><a class="reference external" href="apidocs/net/sourceforge/argparse4j/inf/ArgumentParser.html#getDefault-java.lang.String-"><span class="pre">ArgumentParser.getDefault()</span></a></code> returns the default value for a attribute,
 as set by either <code class="xref docutils literal"><a class="reference external" href="apidocs/net/sourceforge/argparse4j/inf/Argument.html#setDefault-java.lang.Object-"><span class="pre">Argument.setDefault()</span></a></code> or by
-<code class="xref docutils literal"><a class="reference external" href="apidocs/net/sourceforge/argparse4j/inf/ArgumentParser.html#setDefault-java.lang.String, java.lang.Object-"><span class="pre">ArgumentParser.setDefault()</span></a></code>:</p>
+<code class="xref docutils literal"><a class="reference external" href="apidocs/net/sourceforge/argparse4j/inf/ArgumentParser.html#setDefault-java.lang.String-java.lang.Object-"><span class="pre">ArgumentParser.setDefault()</span></a></code>:</p>
 <div class="highlight-java"><div class="highlight"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">ArgumentParser</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParsers</span><span class="o">.</span><span class="na">newArgumentParser</span><span class="o">(</span><span class="s">&quot;prog&quot;</span><span class="o">);</span>
     <span class="n">parser</span><span class="o">.</span><span class="na">addArgument</span><span class="o">(</span><span class="s">&quot;--foo&quot;</span><span class="o">).</span><span class="na">setDefault</span><span class="o">(</span><span class="s">&quot;badger&quot;</span><span class="o">);</span>
