@@ -1,35 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Migration &#8212; argparse4j 0.8.1 documentation</title>
-    
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Migration &#8212; argparse4j 0.9.1-SNAPSHOT documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/default2.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/default2.css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.8.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="argparse4j 0.8.1 documentation" href="index.html" />
     <link rel="prev" title="Examples" href="examples.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -39,7 +28,8 @@
         <li class="right" >
           <a href="examples.html" title="Examples"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">argparse4j 0.8.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">argparse4j 0.9.1-SNAPSHOT documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Migration</a></li> 
       </ul>
     </div>  
 
@@ -53,50 +43,50 @@
 <div class="section" id="to-0-5-0">
 <h2>To 0.5.0:<a class="headerlink" href="#to-0-5-0" title="Permalink to this headline">¶</a></h2>
 <p>The rules for the default <a class="reference internal" href="usage.html#argument-dest"><span class="std std-ref">Argument.dest()</span></a> for positional arguments has
-been made consistent with options, in that the dash (<code class="docutils literal"><span class="pre">-</span></code>) character is
-is converted to an underscore (<code class="docutils literal"><span class="pre">_</span></code>)</p>
+been made consistent with options, in that the dash (<code class="docutils literal notranslate"><span class="pre">-</span></code>) character is
+is converted to an underscore (<code class="docutils literal notranslate"><span class="pre">_</span></code>)</p>
 <p>Prior to 0.5.0:</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">parser</span><span class="o">.</span><span class="na">addArgument</span><span class="o">(</span><span class="s">&quot;foo-bar&quot;</span><span class="o">);</span>
-<span class="n">Namespace</span> <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="na">parseArgs</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
-<span class="n">args</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;foo-bar&quot;</span><span class="o">);</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">parser</span><span class="p">.</span><span class="na">addArgument</span><span class="p">(</span><span class="s">&quot;foo-bar&quot;</span><span class="p">);</span>
+<span class="n">Namespace</span> <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="na">parseArgs</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+<span class="n">args</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;foo-bar&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Starting from 0.5.0:</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">parser</span><span class="o">.</span><span class="na">addArgument</span><span class="o">(</span><span class="s">&quot;foo-bar&quot;</span><span class="o">);</span>
-<span class="n">Namespace</span> <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="na">parseArgs</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
-<span class="n">args</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;foo_bar&quot;</span><span class="o">);</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">parser</span><span class="p">.</span><span class="na">addArgument</span><span class="p">(</span><span class="s">&quot;foo-bar&quot;</span><span class="p">);</span>
+<span class="n">Namespace</span> <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="na">parseArgs</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+<span class="n">args</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;foo_bar&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>We encourage the applications to review about this change and update
 their code, but it is not feasible, use
-<code class="docutils literal"><span class="pre">ArgumentParsers.setNoDestConversionForPositionalArgs(true)</span></code> to tell
+<code class="docutils literal notranslate"><span class="pre">ArgumentParsers.setNoDestConversionForPositionalArgs(true)</span></code> to tell
 the library not to do this conversion.</p>
 </div>
 <div class="section" id="to-0-8-0">
 <h2>To 0.8.0:<a class="headerlink" href="#to-0-8-0" title="Permalink to this headline">¶</a></h2>
-<p>The global variables of <code class="docutils literal"><span class="pre">ArgumentParsers</span></code> have been replaced by a
+<p>The global variables of <code class="docutils literal notranslate"><span class="pre">ArgumentParsers</span></code> have been replaced by a
 builder. Using builders multiple differently configured
 ArgumentParser instances can be used on the same or other threads
 without interfering with each other.</p>
 <p>Prior to 0.8.0:</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">ArgumentParsers</span><span class="o">.</span><span class="na">setCJKWidthHack</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
-<span class="n">ArgumentParsers</span><span class="o">.</span><span class="na">setNoDestConversionForPositionalArgs</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
-<span class="n">ArgumentParsers</span><span class="o">.</span><span class="na">setSingleMetavar</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
-<span class="n">ArgumentParsers</span><span class="o">.</span><span class="na">setTerminalWidthDetection</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
-<span class="n">ArgumentParser</span> <span class="n">ap</span> <span class="o">=</span> <span class="n">ArgumentParsers</span><span class="o">.</span><span class="na">newArgumentParser</span><span class="o">(</span><span class="s">&quot;prog&quot;</span><span class="o">,</span> <span class="o">...);</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">ArgumentParsers</span><span class="p">.</span><span class="na">setCJKWidthHack</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="n">ArgumentParsers</span><span class="p">.</span><span class="na">setNoDestConversionForPositionalArgs</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="n">ArgumentParsers</span><span class="p">.</span><span class="na">setSingleMetavar</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="n">ArgumentParsers</span><span class="p">.</span><span class="na">setTerminalWidthDetection</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="n">ArgumentParser</span> <span class="n">ap</span> <span class="o">=</span> <span class="n">ArgumentParsers</span><span class="p">.</span><span class="na">newArgumentParser</span><span class="p">(</span><span class="s">&quot;prog&quot;</span><span class="p">,</span> <span class="p">...);</span>
 </pre></div>
 </div>
 <p>Starting from 0.8.0:</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">ArgumentParser</span> <span class="n">ap</span> <span class="o">=</span> <span class="n">ArgumentParsers</span><span class="o">.</span><span class="na">newFor</span><span class="o">(</span><span class="s">&quot;prog&quot;</span><span class="o">)</span>
-        <span class="o">...</span>
-        <span class="o">.</span><span class="na">cjkWidthHack</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">noDestConversionForPositionalArgs</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
-        <span class="o">.</span><span class="na">singleMetavar</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
-        <span class="o">.</span><span class="na">terminalWidthDetection</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">ArgumentParser</span> <span class="n">ap</span> <span class="o">=</span> <span class="n">ArgumentParsers</span><span class="p">.</span><span class="na">newFor</span><span class="p">(</span><span class="s">&quot;prog&quot;</span><span class="p">)</span>
+        <span class="p">...</span>
+        <span class="p">.</span><span class="na">cjkWidthHack</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">noDestConversionForPositionalArgs</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+        <span class="p">.</span><span class="na">singleMetavar</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+        <span class="p">.</span><span class="na">terminalWidthDetection</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal"><span class="pre">ArgumentParsers.newArgumentParser(String,</span> <span class="pre">...)</span></code> methods and
+<p>The <code class="docutils literal notranslate"><span class="pre">ArgumentParsers.newArgumentParser(String,</span> <span class="pre">...)</span></code> methods and
 the getters and setters for the global variables have been
 deprecated. It is encouraged to port applications to the builder
 style creation of an ArgumentParser object.</p>
@@ -104,6 +94,7 @@ style creation of an ArgumentParser object.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -119,7 +110,7 @@ style creation of an ArgumentParser object.</p>
   <li><a href="project-info.html">Project Information</a></li>
   <li><a href="apidocs/index.html">JavaDocs</a></li>
 </ul>
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Migration</a><ul>
 <li><a class="reference internal" href="#to-0-5-0">To 0.5.0:</a></li>
@@ -134,20 +125,20 @@ style creation of an ArgumentParser object.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/migration.txt"
+      <li><a href="_sources/migration.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -161,12 +152,13 @@ style creation of an ArgumentParser object.</p>
         <li class="right" >
           <a href="examples.html" title="Examples"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">argparse4j 0.8.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">argparse4j 0.9.1-SNAPSHOT documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Migration</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2011, 2015, Tatsuhiro Tsujikawa.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
     </div>
   </body>
 </html>

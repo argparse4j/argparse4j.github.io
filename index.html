@@ -1,35 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Argparse4j - The Java command-line argument parser library &#8212; argparse4j 0.8.1 documentation</title>
-    
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Argparse4j - The Java command-line argument parser library &#8212; argparse4j 0.9.1-SNAPSHOT documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/default2.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/default2.css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.8.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="argparse4j 0.8.1 documentation" href="#" />
     <link rel="next" title="The Argparse4j User Manual" href="usage.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -39,7 +28,8 @@
         <li class="right" >
           <a href="usage.html" title="The Argparse4j User Manual"
              accesskey="N">next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">argparse4j 0.8.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">argparse4j 0.9.1-SNAPSHOT documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Argparse4j - The Java command-line argument parser library</a></li> 
       </ul>
     </div>  
 
@@ -50,21 +40,20 @@
             
   <div class="section" id="argparse4j-the-java-command-line-argument-parser-library">
 <h1>Argparse4j - The Java command-line argument parser library<a class="headerlink" href="#argparse4j-the-java-command-line-argument-parser-library" title="Permalink to this headline">¶</a></h1>
-<a class="reference external image-reference" href="https://travis-ci.org/argparse4j/argparse4j"><img alt="https://travis-ci.org/argparse4j/argparse4j.svg?branch=master" src="https://travis-ci.org/argparse4j/argparse4j.svg?branch=master" /></a>
+<a class="reference external image-reference" href="https://travis-ci.com/github/argparse4j/argparse4j"><img alt="https://api.travis-ci.com/argparse4j/argparse4j.svg?branch=master" src="https://api.travis-ci.com/argparse4j/argparse4j.svg?branch=master" /></a>
 <p>Argparse4j is a command line argument parser library for Java based
-on Python's
-<a class="reference external" href="http://docs.python.org/3/library/argparse.html">argparse</a> module.</p>
+on Python’s
+<a class="reference external" href="https://docs.python.org/3/library/argparse.html">argparse</a> module.</p>
 <p>Argparse4j is available in Maven central repository:</p>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>net.sourceforge.argparse4j<span class="nt">&lt;/groupId&gt;</span>
   <span class="nt">&lt;artifactId&gt;</span>argparse4j<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>0.8.1<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;version&gt;</span>0.9.0<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
 </div>
-<p><strong>IMPORTANT</strong>: When upgrading from 0.4.4 or earlier version, read
-<a class="reference external" href="https://argparse4j.github.io/migration.html">Migration</a>.
-There is an important change in 0.5.0 which might break you code.  The
+<p><strong>IMPORTANT</strong>: When upgrading, read <a class="reference external" href="https://argparse4j.github.io/migration.html">Migration</a>.
+There is an important change in 0.5.0 which might break your code.  The
 documentation describes the change and how to migrate from earlier
 versions.</p>
 <p>There are still missing features which exist in argparse but not in
@@ -72,51 +61,42 @@ argparse4j, but there are also new features which only exist in
 argparse4j.</p>
 <p>Here is summary of features:</p>
 <ul>
-<li><p class="first">Supported positional arguments and named arguments.</p>
-</li>
-<li><p class="first">Variable number of arguments.</p>
-</li>
-<li><p class="first">Generates well formatted line-wrapped help message.</p>
-</li>
-<li><p class="first">Suggests named arguments/sub-command if unrecognized
+<li><p>Supported positional arguments and named arguments.</p></li>
+<li><p>Variable number of arguments.</p></li>
+<li><p>Generates well formatted line-wrapped help message.</p></li>
+<li><p>Suggests named arguments/sub-command if unrecognized
 arguments/sub-command were given, e.g.:</p>
-<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">unrecognized argument &#39;--tpye&#39;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">unrecognized argument &#39;--tpye&#39;</span>
 <span class="go">Did you mean:</span>
 <span class="go">  --type</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Takes into account East Asian Width ambiguous characters when
-line-wrap.</p>
-</li>
-<li><p class="first">Sub-commands like, <code class="docutils literal"><span class="pre">git</span> <span class="pre">add</span></code>.</p>
-</li>
-<li><p class="first">Sub-command alias names, e.g., <code class="docutils literal"><span class="pre">co</span></code> for <code class="docutils literal"><span class="pre">checkout</span></code>.</p>
-</li>
-<li><p class="first">Customizable option prefix characters, e.g. <code class="docutils literal"><span class="pre">+f</span></code> and <code class="docutils literal"><span class="pre">/h</span></code>.</p>
-</li>
-<li><p class="first">Print default values in help message.</p>
-</li>
-<li><p class="first">Choice from given collection of values.</p>
-</li>
-<li><p class="first">Type conversion from option strings.</p>
-</li>
-<li><p class="first">Can directly assign values into user defined classes using annotation.</p>
-</li>
-<li><p class="first">Group arguments so that it will be printed in help message in
-more readable way.</p>
-</li>
-<li><p class="first">Mutually exclusive argument group.</p>
-</li>
-<li><p class="first">Read additional arguments from file.</p>
-</li>
-<li><p class="first">Argument/sub-command abbreviations.</p>
-</li>
+<li><p>Takes into account East Asian Width ambiguous characters when
+line-wrap.</p></li>
+<li><p>Sub-commands like, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>.</p></li>
+<li><p>Sub-command alias names, e.g., <code class="docutils literal notranslate"><span class="pre">co</span></code> for <code class="docutils literal notranslate"><span class="pre">checkout</span></code>.</p></li>
+<li><p>Customizable option prefix characters, e.g. <code class="docutils literal notranslate"><span class="pre">+f</span></code> and <code class="docutils literal notranslate"><span class="pre">/h</span></code>.</p></li>
+<li><p>Print default values in help message.</p></li>
+<li><p>Choice from given collection of values.</p></li>
+<li><p>Type conversion from option strings.</p></li>
+<li><p>Can directly assign values into user defined classes using annotation.</p></li>
+<li><p>Group arguments so that it will be printed in help message in
+more readable way.</p></li>
+<li><p>Mutually exclusive argument group.</p></li>
+<li><p>Read additional arguments from file.</p></li>
+<li><p>Argument/sub-command abbreviations.</p></li>
 </ul>
-<p>The primary documentation is done using <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a>.  You need Sphinx to run <code class="docutils literal"><span class="pre">mvn</span> <span class="pre">site</span></code>.</p>
-<div class="section" id="upgrading-to-0-5-0-or-later-versions">
-<h2>Upgrading to 0.5.0 or later versions<a class="headerlink" href="#upgrading-to-0-5-0-or-later-versions" title="Permalink to this headline">¶</a></h2>
-<p>Please consult the documentation section for <a class="reference external" href="https://argparse4j.github.io/migration.html">Migration</a>.</p>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>Java 8 or higher is needed.</p>
+<p>The main JAR contains module information for the Java Module System. The
+module name is <code class="docutils literal notranslate"><span class="pre">net.sourceforge.argparse4j</span></code>.</p>
+</div>
+<div class="section" id="building">
+<h2>Building<a class="headerlink" href="#building" title="Permalink to this headline">¶</a></h2>
+<p>To build you need Java 9 or higher, and Maven 3.2.3 or higher.</p>
+<p>The primary documentation is done using <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a>.  You need Sphinx to run <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">site</span></code>.</p>
 <p>To see how to use argparse4j, see <a class="reference internal" href="usage.html"><span class="doc">The Argparse4j User Manual</span></a>.  See also
 <a class="reference internal" href="examples.html"><span class="doc">Examples</span></a>.</p>
 </div>
@@ -152,80 +132,80 @@ more readable way.</p>
 <p>Here is the working demo program to calculate checksum. Argparse4j
 is used to parse command line arguments (Java 7 required to compile
 this source code):</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.nio.ByteBuffer</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.nio.channels.ByteChannel</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.nio.file.Files</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.nio.file.Path</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.nio.file.Paths</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.nio.file.StandardOpenOption</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.security.MessageDigest</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.security.NoSuchAlgorithmException</span><span class="o">;</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.ByteBuffer</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.channels.ByteChannel</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.Files</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.Path</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.Paths</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.StandardOpenOption</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.security.MessageDigest</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.security.NoSuchAlgorithmException</span><span class="p">;</span>
 
-<span class="kn">import</span> <span class="nn">net.sourceforge.argparse4j.ArgumentParsers</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">net.sourceforge.argparse4j.inf.ArgumentParser</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">net.sourceforge.argparse4j.inf.ArgumentParserException</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">net.sourceforge.argparse4j.inf.Namespace</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.sourceforge.argparse4j.ArgumentParsers</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">net.sourceforge.argparse4j.inf.ArgumentParser</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">net.sourceforge.argparse4j.inf.ArgumentParserException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">net.sourceforge.argparse4j.inf.Namespace</span><span class="p">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Checksum</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Checksum</span> <span class="p">{</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">ArgumentParser</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParsers</span><span class="o">.</span><span class="na">newFor</span><span class="o">(</span><span class="s">&quot;Checksum&quot;</span><span class="o">).</span><span class="na">build</span><span class="o">()</span>
-                <span class="o">.</span><span class="na">defaultHelp</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">description</span><span class="o">(</span><span class="s">&quot;Calculate checksum of given files.&quot;</span><span class="o">);</span>
-        <span class="n">parser</span><span class="o">.</span><span class="na">addArgument</span><span class="o">(</span><span class="s">&quot;-t&quot;</span><span class="o">,</span> <span class="s">&quot;--type&quot;</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">choices</span><span class="o">(</span><span class="s">&quot;SHA-256&quot;</span><span class="o">,</span> <span class="s">&quot;SHA-512&quot;</span><span class="o">,</span> <span class="s">&quot;SHA1&quot;</span><span class="o">).</span><span class="na">setDefault</span><span class="o">(</span><span class="s">&quot;SHA-256&quot;</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">help</span><span class="o">(</span><span class="s">&quot;Specify hash function to use&quot;</span><span class="o">);</span>
-        <span class="n">parser</span><span class="o">.</span><span class="na">addArgument</span><span class="o">(</span><span class="s">&quot;file&quot;</span><span class="o">).</span><span class="na">nargs</span><span class="o">(</span><span class="s">&quot;*&quot;</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">help</span><span class="o">(</span><span class="s">&quot;File to calculate checksum&quot;</span><span class="o">);</span>
-        <span class="n">Namespace</span> <span class="n">ns</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-        <span class="k">try</span> <span class="o">{</span>
-            <span class="n">ns</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="na">parseArgs</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
-        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">ArgumentParserException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">parser</span><span class="o">.</span><span class="na">handleError</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="n">MessageDigest</span> <span class="n">digest</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-        <span class="k">try</span> <span class="o">{</span>
-            <span class="n">digest</span> <span class="o">=</span> <span class="n">MessageDigest</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="n">ns</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">&quot;type&quot;</span><span class="o">));</span>
-        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">NoSuchAlgorithmException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;Could not get instance of algorithm %s: %s&quot;</span><span class="o">,</span>
-                    <span class="n">ns</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">&quot;type&quot;</span><span class="o">),</span> <span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">name</span> <span class="o">:</span> <span class="n">ns</span><span class="o">.&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getList</span><span class="o">(</span><span class="s">&quot;file&quot;</span><span class="o">))</span> <span class="o">{</span>
-            <span class="n">Path</span> <span class="n">path</span> <span class="o">=</span> <span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
-            <span class="k">try</span> <span class="o">(</span><span class="n">ByteChannel</span> <span class="n">channel</span> <span class="o">=</span> <span class="n">Files</span><span class="o">.</span><span class="na">newByteChannel</span><span class="o">(</span><span class="n">path</span><span class="o">,</span>
-                    <span class="n">StandardOpenOption</span><span class="o">.</span><span class="na">READ</span><span class="o">);)</span> <span class="o">{</span>
-                <span class="n">ByteBuffer</span> <span class="n">buffer</span> <span class="o">=</span> <span class="n">ByteBuffer</span><span class="o">.</span><span class="na">allocate</span><span class="o">(</span><span class="mi">4096</span><span class="o">);</span>
-                <span class="k">while</span> <span class="o">(</span><span class="n">channel</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">buffer</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">buffer</span><span class="o">.</span><span class="na">flip</span><span class="o">();</span>
-                    <span class="n">digest</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">buffer</span><span class="o">);</span>
-                    <span class="n">buffer</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
-                <span class="o">}</span>
-            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">System</span><span class="o">.</span><span class="na">err</span>
-                        <span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;%s: failed to read data: %s&quot;</span><span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
-                <span class="k">continue</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="kt">byte</span> <span class="n">md</span><span class="o">[]</span> <span class="o">=</span> <span class="n">digest</span><span class="o">.</span><span class="na">digest</span><span class="o">();</span>
-            <span class="n">StringBuffer</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">();</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">len</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">String</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">toHexString</span><span class="o">(</span><span class="mh">0xff</span> <span class="o">&amp;</span> <span class="n">md</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">x</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;0&quot;</span><span class="o">);</span>
-                <span class="o">}</span>
-                <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
-            <span class="o">}</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;%s  %s\n&quot;</span><span class="o">,</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">(),</span> <span class="n">name</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ArgumentParser</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParsers</span><span class="p">.</span><span class="na">newFor</span><span class="p">(</span><span class="s">&quot;Checksum&quot;</span><span class="p">).</span><span class="na">build</span><span class="p">()</span>
+                <span class="p">.</span><span class="na">defaultHelp</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">&quot;Calculate checksum of given files.&quot;</span><span class="p">);</span>
+        <span class="n">parser</span><span class="p">.</span><span class="na">addArgument</span><span class="p">(</span><span class="s">&quot;-t&quot;</span><span class="p">,</span> <span class="s">&quot;--type&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">choices</span><span class="p">(</span><span class="s">&quot;SHA-256&quot;</span><span class="p">,</span> <span class="s">&quot;SHA-512&quot;</span><span class="p">,</span> <span class="s">&quot;SHA1&quot;</span><span class="p">).</span><span class="na">setDefault</span><span class="p">(</span><span class="s">&quot;SHA-256&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">help</span><span class="p">(</span><span class="s">&quot;Specify hash function to use&quot;</span><span class="p">);</span>
+        <span class="n">parser</span><span class="p">.</span><span class="na">addArgument</span><span class="p">(</span><span class="s">&quot;file&quot;</span><span class="p">).</span><span class="na">nargs</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">help</span><span class="p">(</span><span class="s">&quot;File to calculate checksum&quot;</span><span class="p">);</span>
+        <span class="n">Namespace</span> <span class="n">ns</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">ns</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="na">parseArgs</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">ArgumentParserException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">parser</span><span class="p">.</span><span class="na">handleError</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">MessageDigest</span> <span class="n">digest</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">digest</span> <span class="o">=</span> <span class="n">MessageDigest</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="n">ns</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;type&quot;</span><span class="p">));</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">NoSuchAlgorithmException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Could not get instance of algorithm %s: %s&quot;</span><span class="p">,</span>
+                    <span class="n">ns</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;type&quot;</span><span class="p">),</span> <span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">name</span> <span class="p">:</span> <span class="n">ns</span><span class="p">.</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getList</span><span class="p">(</span><span class="s">&quot;file&quot;</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">Path</span> <span class="n">path</span> <span class="o">=</span> <span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+            <span class="k">try</span> <span class="p">(</span><span class="n">ByteChannel</span> <span class="n">channel</span> <span class="o">=</span> <span class="n">Files</span><span class="p">.</span><span class="na">newByteChannel</span><span class="p">(</span><span class="n">path</span><span class="p">,</span>
+                    <span class="n">StandardOpenOption</span><span class="p">.</span><span class="na">READ</span><span class="p">);)</span> <span class="p">{</span>
+                <span class="n">ByteBuffer</span> <span class="n">buffer</span> <span class="o">=</span> <span class="n">ByteBuffer</span><span class="p">.</span><span class="na">allocate</span><span class="p">(</span><span class="mi">4096</span><span class="p">);</span>
+                <span class="k">while</span> <span class="p">(</span><span class="n">channel</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">buffer</span><span class="p">.</span><span class="na">flip</span><span class="p">();</span>
+                    <span class="n">digest</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span>
+                    <span class="n">buffer</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
+                <span class="p">}</span>
+            <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">err</span>
+                        <span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%s: failed to read data: %s&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+                <span class="k">continue</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="kt">byte</span> <span class="n">md</span><span class="o">[]</span> <span class="o">=</span> <span class="n">digest</span><span class="p">.</span><span class="na">digest</span><span class="p">();</span>
+            <span class="n">StringBuffer</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="p">();</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">len</span> <span class="o">=</span> <span class="n">md</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">String</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">toHexString</span><span class="p">(</span><span class="mh">0xff</span> <span class="o">&amp;</span> <span class="n">md</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="na">length</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;0&quot;</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%s  %s\n&quot;</span><span class="p">,</span> <span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">(),</span> <span class="n">name</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-<span class="o">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>When executed:</p>
-<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> java Checksum -h
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>java Checksum -h
 <span class="go">usage: Checksum [-h] [-t {SHA-256,SHA-512,SHA1}] [file [file ...]]</span>
 
 <span class="go">Calculate checksum of given files.</span>
@@ -237,18 +217,18 @@ this source code):</p>
 <span class="go">  -h, --help             show this help message and exit</span>
 <span class="go">  -t {SHA-256,SHA-512,SHA1}, --type {SHA-256,SHA-512,SHA1}</span>
 <span class="go">                         Specify hash function to use (default: SHA-256)</span>
-<span class="gp">$</span> java Checksum file1.cc file1.h
+<span class="gp">$ </span>java Checksum file1.cc file1.h
 <span class="go">6bd85bf4b936bc8870c70bea04cd12d4fe3745934f511e6e188d718d32154a79  file1.cc</span>
 <span class="go">839ef370cbd54f62985bac7b974cc575eaaa24a8edd6ae7787cfc71829ceda40  file1.h</span>
 
-<span class="gp">$</span> java Checksum --tpye file1.cc
+<span class="gp">$ </span>java Checksum --tpye file1.cc
 <span class="go">usage: Checksum [-h] [-t {SHA-256,SHA-512,SHA1}] [file [file ...]]</span>
 <span class="go">Checksum: error: unrecognized arguments: --tpye</span>
 
 <span class="go">Did you mean:</span>
 <span class="go">        --type</span>
 
-<span class="gp">$</span> java Checksum -t SHA1 file1.cc
+<span class="gp">$ </span>java Checksum -t SHA1 file1.cc
 <span class="go">20bada64dde97b98faaba09ebbfdb70af71476f1  file1.cc</span>
 </pre></div>
 </div>
@@ -256,6 +236,7 @@ this source code):</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -271,10 +252,11 @@ this source code):</p>
   <li><a href="project-info.html">Project Information</a></li>
   <li><a href="apidocs/index.html">JavaDocs</a></li>
 </ul>
-  <h3><a href="#">Table Of Contents</a></h3>
+  <h3><a href="#">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Argparse4j - The Java command-line argument parser library</a><ul>
-<li><a class="reference internal" href="#upgrading-to-0-5-0-or-later-versions">Upgrading to 0.5.0 or later versions</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#building">Building</a></li>
 <li><a class="reference internal" href="#contents">Contents</a></li>
 <li><a class="reference internal" href="#demo">Demo</a></li>
 </ul>
@@ -287,20 +269,20 @@ this source code):</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/index.txt"
+      <li><a href="_sources/index.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -314,12 +296,13 @@ this source code):</p>
         <li class="right" >
           <a href="usage.html" title="The Argparse4j User Manual"
              >next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">argparse4j 0.8.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">argparse4j 0.9.1-SNAPSHOT documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Argparse4j - The Java command-line argument parser library</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2011, 2015, Tatsuhiro Tsujikawa.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
     </div>
   </body>
 </html>

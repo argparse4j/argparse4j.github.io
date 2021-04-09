@@ -1,36 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Examples &#8212; argparse4j 0.8.1 documentation</title>
-    
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Examples &#8212; argparse4j 0.9.1-SNAPSHOT documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/default2.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/default2.css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.8.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="argparse4j 0.8.1 documentation" href="index.html" />
     <link rel="next" title="Migration" href="migration.html" />
     <link rel="prev" title="The Argparse4j User Manual" href="usage.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -43,7 +32,8 @@
         <li class="right" >
           <a href="usage.html" title="The Argparse4j User Manual"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">argparse4j 0.8.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">argparse4j 0.9.1-SNAPSHOT documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Examples</a></li> 
       </ul>
     </div>  
 
@@ -58,66 +48,66 @@
 <h2>CJK line-wrap example<a class="headerlink" href="#cjk-line-wrap-example" title="Permalink to this headline">¶</a></h2>
 <p>Sub-set of options of <em class="manpage">ls(1)</em>. The help messages are from
 Debian Linux:</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import static</span> <span class="nn">net.sourceforge.argparse4j.impl.Arguments.storeTrue</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">net.sourceforge.argparse4j.ArgumentParsers</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">net.sourceforge.argparse4j.inf.ArgumentParser</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">net.sourceforge.argparse4j.inf.ArgumentParserException</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">net.sourceforge.argparse4j.inf.Namespace</span><span class="o">;</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import static</span> <span class="nn">net.sourceforge.argparse4j.impl.Arguments.storeTrue</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">net.sourceforge.argparse4j.ArgumentParsers</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">net.sourceforge.argparse4j.inf.ArgumentParser</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">net.sourceforge.argparse4j.inf.ArgumentParserException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">net.sourceforge.argparse4j.inf.Namespace</span><span class="p">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LsHelpDemo</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LsHelpDemo</span> <span class="p">{</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">ArgumentParser</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParsers</span>
-        <span class="o">.</span><span class="na">newFor</span><span class="o">(</span><span class="s">&quot;ls&quot;</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">build</span><span class="o">()</span>
-                <span class="o">.</span><span class="na">defaultHelp</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">description</span><span class="o">(</span>
+        <span class="p">.</span><span class="na">newFor</span><span class="p">(</span><span class="s">&quot;ls&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">build</span><span class="p">()</span>
+                <span class="p">.</span><span class="na">defaultHelp</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">description</span><span class="p">(</span>
                         <span class="s">&quot;FILE に関する情報を一覧表示します (デフォルトは現在のディレクトリ)。\n&quot;</span>
-                                <span class="o">+</span> <span class="s">&quot;-cftuvSUX または --sort が指定されない限り、要素はアルファベット順で並べ替えられます。&quot;</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">epilog</span><span class="o">(</span><span class="s">&quot;SIZE は次のうちの一つです (整数の後に付加されるかもしれません):\n&quot;</span>
-                        <span class="o">+</span> <span class="s">&quot;KB 1000, K 1024, MB 1000*1000, M 1024*1024, その他 G, T, P, E, Z, Y など。&quot;</span><span class="o">);</span>
-        <span class="n">parser</span><span class="o">.</span><span class="na">addArgument</span><span class="o">(</span><span class="s">&quot;-a&quot;</span><span class="o">,</span> <span class="s">&quot;--all&quot;</span><span class="o">).</span><span class="na">help</span><span class="o">(</span><span class="s">&quot;. で始まる要素を無視しない&quot;</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">action</span><span class="o">(</span><span class="n">storeTrue</span><span class="o">());</span>
-        <span class="n">parser</span><span class="o">.</span><span class="na">addArgument</span><span class="o">(</span><span class="s">&quot;-A&quot;</span><span class="o">,</span> <span class="s">&quot;--almost-all&quot;</span><span class="o">).</span><span class="na">help</span><span class="o">(</span><span class="s">&quot;. および .. を一覧表示しない&quot;</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">action</span><span class="o">(</span><span class="n">storeTrue</span><span class="o">());</span>
-        <span class="n">parser</span><span class="o">.</span><span class="na">addArgument</span><span class="o">(</span><span class="s">&quot;--author&quot;</span><span class="o">).</span><span class="na">help</span><span class="o">(</span><span class="s">&quot;-l と合わせて使用した時、各ファイルの作成者を表示する&quot;</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">action</span><span class="o">(</span><span class="n">storeTrue</span><span class="o">());</span>
-        <span class="n">parser</span><span class="o">.</span><span class="na">addArgument</span><span class="o">(</span><span class="s">&quot;-b&quot;</span><span class="o">,</span> <span class="s">&quot;--escape&quot;</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">help</span><span class="o">(</span><span class="s">&quot;表示不可能な文字の場合に C 形式のエスケープ文字を表示する&quot;</span><span class="o">).</span><span class="na">action</span><span class="o">(</span><span class="n">storeTrue</span><span class="o">());</span>
-        <span class="n">parser</span><span class="o">.</span><span class="na">addArgument</span><span class="o">(</span><span class="s">&quot;--block-size&quot;</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">type</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">metavar</span><span class="o">(</span><span class="s">&quot;SIZE&quot;</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">help</span><span class="o">(</span><span class="s">&quot;SIZE の倍数として表示する。例: `--block-size=M&#39; は&quot;</span>
+                                <span class="o">+</span> <span class="s">&quot;-cftuvSUX または --sort が指定されない限り、要素はアルファベット順で並べ替えられます。&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">epilog</span><span class="p">(</span><span class="s">&quot;SIZE は次のうちの一つです (整数の後に付加されるかもしれません):\n&quot;</span>
+                        <span class="o">+</span> <span class="s">&quot;KB 1000, K 1024, MB 1000*1000, M 1024*1024, その他 G, T, P, E, Z, Y など。&quot;</span><span class="p">);</span>
+        <span class="n">parser</span><span class="p">.</span><span class="na">addArgument</span><span class="p">(</span><span class="s">&quot;-a&quot;</span><span class="p">,</span> <span class="s">&quot;--all&quot;</span><span class="p">).</span><span class="na">help</span><span class="p">(</span><span class="s">&quot;. で始まる要素を無視しない&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">action</span><span class="p">(</span><span class="n">storeTrue</span><span class="p">());</span>
+        <span class="n">parser</span><span class="p">.</span><span class="na">addArgument</span><span class="p">(</span><span class="s">&quot;-A&quot;</span><span class="p">,</span> <span class="s">&quot;--almost-all&quot;</span><span class="p">).</span><span class="na">help</span><span class="p">(</span><span class="s">&quot;. および .. を一覧表示しない&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">action</span><span class="p">(</span><span class="n">storeTrue</span><span class="p">());</span>
+        <span class="n">parser</span><span class="p">.</span><span class="na">addArgument</span><span class="p">(</span><span class="s">&quot;--author&quot;</span><span class="p">).</span><span class="na">help</span><span class="p">(</span><span class="s">&quot;-l と合わせて使用した時、各ファイルの作成者を表示する&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">action</span><span class="p">(</span><span class="n">storeTrue</span><span class="p">());</span>
+        <span class="n">parser</span><span class="p">.</span><span class="na">addArgument</span><span class="p">(</span><span class="s">&quot;-b&quot;</span><span class="p">,</span> <span class="s">&quot;--escape&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">help</span><span class="p">(</span><span class="s">&quot;表示不可能な文字の場合に C 形式のエスケープ文字を表示する&quot;</span><span class="p">).</span><span class="na">action</span><span class="p">(</span><span class="n">storeTrue</span><span class="p">());</span>
+        <span class="n">parser</span><span class="p">.</span><span class="na">addArgument</span><span class="p">(</span><span class="s">&quot;--block-size&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">type</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">metavar</span><span class="p">(</span><span class="s">&quot;SIZE&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">help</span><span class="p">(</span><span class="s">&quot;SIZE の倍数として表示する。例: `--block-size=M&#39; は&quot;</span>
                         <span class="o">+</span> <span class="s">&quot;表示する時に 1,048,576 バイトの倍数としてサイズを&quot;</span>
-                        <span class="o">+</span> <span class="s">&quot;表示する。SIZE の形式は以下を参照)&quot;</span><span class="o">);</span>
-        <span class="n">parser</span><span class="o">.</span><span class="na">addArgument</span><span class="o">(</span><span class="s">&quot;-B&quot;</span><span class="o">,</span> <span class="s">&quot;--ignore-backups&quot;</span><span class="o">).</span><span class="na">help</span><span class="o">(</span><span class="s">&quot;~ で終了する要素を一覧表示しない&quot;</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">action</span><span class="o">(</span><span class="n">storeTrue</span><span class="o">());</span>
-        <span class="n">parser</span><span class="o">.</span><span class="na">addArgument</span><span class="o">(</span><span class="s">&quot;-c&quot;</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">help</span><span class="o">(</span><span class="s">&quot;-lt と使用した場合: ctime (ファイル状態情報を変更した時間)で並べ替えて表示する\n&quot;</span>
+                        <span class="o">+</span> <span class="s">&quot;表示する。SIZE の形式は以下を参照)&quot;</span><span class="p">);</span>
+        <span class="n">parser</span><span class="p">.</span><span class="na">addArgument</span><span class="p">(</span><span class="s">&quot;-B&quot;</span><span class="p">,</span> <span class="s">&quot;--ignore-backups&quot;</span><span class="p">).</span><span class="na">help</span><span class="p">(</span><span class="s">&quot;~ で終了する要素を一覧表示しない&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">action</span><span class="p">(</span><span class="n">storeTrue</span><span class="p">());</span>
+        <span class="n">parser</span><span class="p">.</span><span class="na">addArgument</span><span class="p">(</span><span class="s">&quot;-c&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">help</span><span class="p">(</span><span class="s">&quot;-lt と使用した場合: ctime (ファイル状態情報を変更した時間)で並べ替えて表示する\n&quot;</span>
                         <span class="o">+</span> <span class="s">&quot;-l と使用した場合: 名前で並べ替えて ctime を表示する\n&quot;</span>
-                        <span class="o">+</span> <span class="s">&quot;それ以外: ctime で新しい順に並べ替える)&quot;</span><span class="o">).</span><span class="na">action</span><span class="o">(</span><span class="n">storeTrue</span><span class="o">());</span>
-        <span class="n">parser</span><span class="o">.</span><span class="na">addArgument</span><span class="o">(</span><span class="s">&quot;-C&quot;</span><span class="o">).</span><span class="na">help</span><span class="o">(</span><span class="s">&quot;要素を列ごとに並べる&quot;</span><span class="o">).</span><span class="na">action</span><span class="o">(</span><span class="n">storeTrue</span><span class="o">());</span>
-        <span class="n">parser</span><span class="o">.</span><span class="na">addArgument</span><span class="o">(</span><span class="s">&quot;--color&quot;</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">nargs</span><span class="o">(</span><span class="s">&quot;?&quot;</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">choices</span><span class="o">(</span><span class="s">&quot;always&quot;</span><span class="o">,</span> <span class="s">&quot;never&quot;</span><span class="o">,</span> <span class="s">&quot;auto&quot;</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">metavar</span><span class="o">(</span><span class="s">&quot;WHEN&quot;</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">setDefault</span><span class="o">(</span><span class="s">&quot;always&quot;</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">help</span><span class="o">(</span><span class="s">&quot;カラー出力をする。 WHEN のデフォルト値は `always&#39;、&quot;</span>
-                        <span class="o">+</span> <span class="s">&quot;`never&#39; または `auto&#39;。詳細は下部を参照)&quot;</span><span class="o">);</span>
-        <span class="n">parser</span><span class="o">.</span><span class="na">addArgument</span><span class="o">(</span><span class="s">&quot;file&quot;</span><span class="o">).</span><span class="na">nargs</span><span class="o">(</span><span class="s">&quot;*&quot;</span><span class="o">);</span>
-        <span class="n">Namespace</span> <span class="n">res</span><span class="o">;</span>
-        <span class="k">try</span> <span class="o">{</span>
-            <span class="n">res</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="na">parseArgs</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">res</span><span class="o">);</span>
-        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">ArgumentParserException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">parser</span><span class="o">.</span><span class="na">handleError</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+                        <span class="o">+</span> <span class="s">&quot;それ以外: ctime で新しい順に並べ替える)&quot;</span><span class="p">).</span><span class="na">action</span><span class="p">(</span><span class="n">storeTrue</span><span class="p">());</span>
+        <span class="n">parser</span><span class="p">.</span><span class="na">addArgument</span><span class="p">(</span><span class="s">&quot;-C&quot;</span><span class="p">).</span><span class="na">help</span><span class="p">(</span><span class="s">&quot;要素を列ごとに並べる&quot;</span><span class="p">).</span><span class="na">action</span><span class="p">(</span><span class="n">storeTrue</span><span class="p">());</span>
+        <span class="n">parser</span><span class="p">.</span><span class="na">addArgument</span><span class="p">(</span><span class="s">&quot;--color&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">nargs</span><span class="p">(</span><span class="s">&quot;?&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">choices</span><span class="p">(</span><span class="s">&quot;always&quot;</span><span class="p">,</span> <span class="s">&quot;never&quot;</span><span class="p">,</span> <span class="s">&quot;auto&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">metavar</span><span class="p">(</span><span class="s">&quot;WHEN&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">setDefault</span><span class="p">(</span><span class="s">&quot;always&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">help</span><span class="p">(</span><span class="s">&quot;カラー出力をする。 WHEN のデフォルト値は `always&#39;、&quot;</span>
+                        <span class="o">+</span> <span class="s">&quot;`never&#39; または `auto&#39;。詳細は下部を参照)&quot;</span><span class="p">);</span>
+        <span class="n">parser</span><span class="p">.</span><span class="na">addArgument</span><span class="p">(</span><span class="s">&quot;file&quot;</span><span class="p">).</span><span class="na">nargs</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">);</span>
+        <span class="n">Namespace</span> <span class="n">res</span><span class="p">;</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="na">parseArgs</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">res</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">ArgumentParserException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">parser</span><span class="p">.</span><span class="na">handleError</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> java LsHelpDemo -h
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>java LsHelpDemo -h
 <span class="go">usage: ls [-h] [-a] [-A] [--author] [-b] [--block-size SIZE] [-B] [-c] [-C]</span>
 <span class="go">          [--color [WHEN]] [file [file ...]]</span>
 
@@ -158,7 +148,7 @@ Debian Linux:</p>
 </div>
 <div class="section" id="clojure-example">
 <h2>Clojure example<a class="headerlink" href="#clojure-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-clojure"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kd">ns </span><span class="nv">argparse4j-demo</span>
+<div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kd">ns </span><span class="nv">argparse4j-demo</span>
     <span class="p">(</span><span class="ss">:import</span> <span class="p">(</span><span class="nf">net.sourceforge.argparse4j</span> <span class="nv">ArgumentParsers</span><span class="p">)</span>
              <span class="p">(</span><span class="nf">net.sourceforge.argparse4j.impl</span> <span class="nv">Arguments</span><span class="p">)</span>
              <span class="p">(</span><span class="nf">net.sourceforge.argparse4j.inf</span> <span class="nv">ArgumentParserException</span><span class="p">)))</span>
@@ -199,9 +189,9 @@ Debian Linux:</p>
         <span class="p">(</span><span class="k">. </span><span class="nv">System</span> <span class="nv">exit</span> <span class="mi">1</span><span class="p">)))</span>
 </pre></div>
 </div>
-<p>With Closure, use <code class="xref docutils literal"><span class="pre">Long</span></code> type instead of <code class="xref docutils literal"><span class="pre">Integer</span></code>
-if you use <code class="xref docutils literal"><a class="reference external" href="apidocs/net/sourceforge/argparse4j/inf/Argument.html#choices-E...-"><span class="pre">Argument.choices()</span></a></code> with integer constants:</p>
-<div class="highlight-clojure"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="nv">apb</span> <span class="p">(</span><span class="k">. </span><span class="nv">ArgumentParsers</span> <span class="nv">newFor</span> <span class="s">&quot;hello&quot;</span><span class="p">))</span>
+<p>With Closure, use <code class="xref docutils literal notranslate"><span class="pre">Long</span></code> type instead of <code class="xref docutils literal notranslate"><span class="pre">Integer</span></code>
+if you use <code class="xref docutils literal notranslate"><a class="reference external" href="apidocs/net/sourceforge/argparse4j/inf/Argument.html#choices(E...)"><span class="pre">Argument.choices()</span></a></code> with integer constants:</p>
+<div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="nv">apb</span> <span class="p">(</span><span class="k">. </span><span class="nv">ArgumentParsers</span> <span class="nv">newFor</span> <span class="s">&quot;hello&quot;</span><span class="p">))</span>
 <span class="p">(</span><span class="k">def </span><span class="nv">ap</span> <span class="p">(</span><span class="k">. </span><span class="nv">apb</span> <span class="nv">build</span><span class="p">))</span>
 <span class="p">(</span><span class="nb">doto </span><span class="p">(</span><span class="k">. </span><span class="nv">ap</span> <span class="nv">addArgument</span> <span class="p">(</span><span class="nf">va</span> <span class="s">&quot;-i&quot;</span><span class="p">))</span>
       <span class="p">(</span><span class="nf">.type</span> <span class="nv">Long</span><span class="p">)</span>
@@ -213,13 +203,14 @@ if you use <code class="xref docutils literal"><a class="reference external" hre
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><h3>Menu</h3>
 <ul>
-  <li><a href=" ">Download</a></li>
+  <li><a href="https://github.com/argparse4j/argparse4j/releases">Download</a></li>
   <li><a href="http://sourceforge.net/projects/argparse4j/files/">Download (~0.5.0)</a></li>
   <li><a href="https://github.com/argparse4j/argparse4j">Source Code</a></li>
   <li><a href="https://github.com/argparse4j/argparse4j/issues">Issues</a></li>
@@ -228,7 +219,7 @@ if you use <code class="xref docutils literal"><a class="reference external" hre
   <li><a href="project-info.html">Project Information</a></li>
   <li><a href="apidocs/index.html">JavaDocs</a></li>
 </ul>
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Examples</a><ul>
 <li><a class="reference internal" href="#cjk-line-wrap-example">CJK line-wrap example</a></li>
@@ -246,20 +237,20 @@ if you use <code class="xref docutils literal"><a class="reference external" hre
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/examples.txt"
+      <li><a href="_sources/examples.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -276,12 +267,13 @@ if you use <code class="xref docutils literal"><a class="reference external" hre
         <li class="right" >
           <a href="usage.html" title="The Argparse4j User Manual"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">argparse4j 0.8.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">argparse4j 0.9.1-SNAPSHOT documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Examples</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2011, 2015, Tatsuhiro Tsujikawa.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
     </div>
   </body>
 </html>
